@@ -35,11 +35,11 @@ const initialState = {
   ]
 };
 
-export default (state = initialState, action) => {
+const counterReducer = (state = initialState, action) => {
   let friends = initialState.friends;
   let index = null;
   for (var i = 0; i < friends.length; i++){
-    if (friends[i].id == action.id){
+    if (friends[i].id === action.id){
       index = i;
     }
   }
@@ -54,3 +54,4 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+export default counterReducer;
