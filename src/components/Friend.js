@@ -16,8 +16,8 @@ const Friend = (props) => {
     }
     return (
        <>
-           <p className="fw-bold fs-2">{props.name}</p>
-           <p className="fs-5">{props.short_bio}</p>
+           <p className={toggle ? "fw-bold fs-2 text-warning":"fw-bold fs-2" }>{props.name}</p>
+           <p className={toggle ? "fw-bold fs-5 text-warning": "fw-bold fs-5" }>{props.short_bio}</p>
            <Row>
                 <Col>
                     <Button onClick={toggleFriend} className={toggle ? "btn-secondary": "btn-primary"}>{toggle ? "Unfriend": "Add as Friend"}</Button>
