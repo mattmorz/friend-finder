@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const MyNav = () => {
 
-    // component did mount
+    //component did mount
     useEffect(() =>{
         console.log('component did mount')
     },[])
