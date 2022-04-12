@@ -3,12 +3,16 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import { useDispatch, useSelector } from "react-redux";
+import { removeFriend, addFriend } from "../redux/ducks/counter";
+
 const Friend = (props) => {
-    const [toggle, setToggle ] = useState(false);
+    const [toggle, setToggle ] = useState(props.is_friend);
+    const dispatch = useDispatch();
 
     const toggleFriend = () => {
         setToggle((prev)=>!prev);
-        toggle ? props.remove_friend(): props.add_friend();
+        toggle ? dispatch(removeFriend(props.id)) : dispatch(addFriend(props.id));
     }
     return (
        <>
@@ -16,11 +20,7 @@ const Friend = (props) => {
            <p className="fs-5">{props.short_bio}</p>
            <Row>
                 <Col>
-                    <Button onClick={toggleFriend} className={toggle ? "disabled": ""}>Add as Friend</Button>
-                </Col>
-                <Col>
-                    { toggle && <Button className="btn-danger" onClick={toggleFriend}>Unfriend</Button>}
-                    
+                    <Button onClick={toggleFriend} className={toggle ? "btn-secondary": "btn-primary"}>{toggle ? "Unfriend": "Add as Friend"}</Button>
                 </Col>
             </Row>
             
