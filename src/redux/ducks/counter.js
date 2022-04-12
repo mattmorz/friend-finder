@@ -2,12 +2,12 @@ const ADD_FRIEND = "ADD_FRIEND";
 const REMOVE_FRIEND = "REMOVE_FRIEND";
 
 export const addFriend = (param) => ({
-  id: param,
+  payload: param,
   type: ADD_FRIEND
 });
 
 export const removeFriend = (param) => ({
-  id: param,
+  payload: param,
   type: REMOVE_FRIEND
 });
 
@@ -36,13 +36,14 @@ const initialState = {
 };
 
 const counterReducer = (state = initialState, action) => {
-  let friends = initialState.friends;
+  let friends = state.friends;
   let index = null;
   for (var i = 0; i < friends.length; i++){
-    if (friends[i].id === action.id){
+    if (friends[i].id === action.payload){
       index = i;
     }
   }
+  
   switch (action.type) {
     case ADD_FRIEND:
       friends[index]['is_friend'] = true;
