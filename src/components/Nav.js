@@ -1,9 +1,7 @@
 import React, { useEffect} from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
-
 import { Link } from "react-router-dom";
 
 const MyNav = () => {
@@ -13,10 +11,11 @@ const MyNav = () => {
         console.log('component did mount')
     },[])
     
+      
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">Friend Finder</Navbar.Brand>
+                <Link className="navbar-brand" to="/">Friend Finder</Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
