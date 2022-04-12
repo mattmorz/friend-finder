@@ -18,7 +18,7 @@ const Friends = () => {
             </Row>
             <Row>
                 {list_of_friends.map((friend)=>(
-                    <Col className="p-2 m-2 bg-dark text-white text-center rounded-3" key={"col_"+friend.id}>
+                    <Col className="p-2 m-2 bg-dark text-white text-center rounded-3" key={friend.id}>
                         <Friend id={friend.id} name={friend.name} short_bio={friend.short_bio} is_friend={friend.is_friend}/>
                     </Col>
                 ))}
