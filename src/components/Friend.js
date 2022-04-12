@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeFriend, addFriend } from "../redux/ducks/counter";
 
 const Friend = (props) => {
