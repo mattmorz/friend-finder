@@ -4,43 +4,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Friend from "./Friend";
 
+import { useSelector } from "react-redux";
+
 const Friends = () => {
-    const friends = [
-        {
-            "id":1,
-            "name": "Matt Morales",
-            "short_bio": "I used fingers a lot."
-        },
-        {
-            "id":2,
-            "name": "Zayin Gomez",
-            "short_bio": "Registered Nurse."
-        },
-        {
-            "id":3,
-            "name": "Zed Morales",
-            "short_bio": "Cries a lot."
-        },
-    ];
-
-    const [counter,setCounter] = useState(0);
-
-    const incrementer = () =>(
-        setCounter(counter + 1)
-    )
-    const decrementer = () =>(
-        setCounter(counter - 1)
-    )
+    //data are from store
+    const list_of_friends = useSelector((state) => state.counter.friends);
+    const number_of_friends = useSelector((state) => state.counter.number_of_friends);
 
     return (
         <Container className="mt-5">
             <Row>
-                {<p className="fs-5">You have {counter} {counter <= 1 ? "friend.": "friends."} </p>}
+                {<p className="fs-5">You have {number_of_friends} {number_of_friends <= 1 ? "friend.": "friends."} </p>}
             </Row>
             <Row>
-                {friends.map((friend)=>(
-                    <Col className="p-2 m-2 bg-light text-center rounded-3" key={"col_"+friend.id}>
-                        <Friend name={friend.name} short_bio={friend.short_bio} add_friend = {incrementer} remove_friend = {decrementer}/>
+                {list_of_friends.map((friend)=>(
+                    <Col className="p-2 m-2 bg-dark text-white text-center rounded-3" key={"col_"+friend.id}>
+                        <Friend id={friend.id} name={friend.name} short_bio={friend.short_bio} is_friend={friend.is_friend}/>
                     </Col>
                 ))}
             </Row>
