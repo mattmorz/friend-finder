@@ -4,11 +4,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
 const About = () => {
-
     return (
         <Container className="mt-5">
             <Row>
-                <h2>About</h2>
+                <h2>About meh...</h2>
             </Row>
 
            <Row>

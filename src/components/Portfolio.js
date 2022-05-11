@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
 const Portfolio = () => {
+
+    useEffect(() => {   
+        //console.log('Portfolio component did mount and component did update ')
+    })
 
     return (
         <Container className="mt-5">

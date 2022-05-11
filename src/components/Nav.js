@@ -6,12 +6,6 @@ import { Link } from "react-router-dom";
 
 const MyNav = () => {
 
-    //component did mount
-    useEffect(() =>{
-        console.log('component did mount')
-    },[])
-    
-      
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
