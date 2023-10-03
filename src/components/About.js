@@ -2,9 +2,12 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Nav from "./Nav";
 
 const About = () => {
     return (
+        <>
+        <Nav/>
         <Container className="mt-5">
             <Row>
                 <h2>About meh...</h2>
@@ -18,7 +21,7 @@ const About = () => {
             </Row>
             
        </Container>
-
+       </>
     )
 };
 

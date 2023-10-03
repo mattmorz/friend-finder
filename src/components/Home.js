@@ -16,6 +16,7 @@ import Radium, {StyleRoot} from 'radium';
 
 import me from "../img/me_.jpg";
 import csu from "../img/Caraga_State_University_1.png";
+import Nav from "./Nav";
 
 const styles = {
     slideInUp: {
@@ -54,6 +55,7 @@ const styles = {
     width: "150px"
   };
 
+ 
   const popoverCSU = (
     <Popover className="rounded-0 bg-transparent border-0">
       <Popover.Body>
@@ -61,7 +63,7 @@ const styles = {
       </Popover.Body>
     </Popover>
   );
-
+     /*
   const popoverFOSS = (
     <Popover className="rounded-0 bg-transparent border-0">
       <Popover.Body>
@@ -69,11 +71,15 @@ const styles = {
       </Popover.Body>
     </Popover>
   );
+  */
 
 
 const Home = () => {
 
     return (
+      <>
+      <Nav/>
+     
         <StyleRoot>
         <Container className="mt-3 p-1 position-relative">
             <Row>
@@ -131,6 +137,7 @@ const Home = () => {
 
         </Container>
         </StyleRoot>
+        </>
     )
 };
 
