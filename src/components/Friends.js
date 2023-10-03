@@ -32,7 +32,7 @@ const Friends = () => {
     )
     
     const searchByName = (event)=>{
-        let name = event.target.value;
+        let name = event.target.value;//this is the value from the input text
         dispatch(searchFriend({id:'',full_name:name}));
     }
     return (
