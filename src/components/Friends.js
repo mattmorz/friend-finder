@@ -1,20 +1,26 @@
 import React, {useEffect,useState}from "react";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Toast from "react-bootstrap/Toast";
 import Form from 'react-bootstrap/Form';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
+import { AiOutlineSortAscending,AiOutlineSortDescending } from "react-icons/ai";
+
+
 import Friend from "./Friend";
 import Nav from "./Nav";
+
 import { useSelector } from "react-redux";
-import { searchFriend } from "../redux/ducks/counter";
+import { searchFriend, sortByName} from "../redux/actions";
 import { useDispatch } from "react-redux";
 
 const Friends = () => {
     //data are from store
-    const list_of_friends = useSelector((state) => state.counter.friends);
-    const number_of_friends = useSelector((state) => state.counter.number_of_friends);
-
+    const list_of_friends = useSelector((state) => state.friend.friends);
+    const number_of_friends = useSelector((state) => state.friend.number_of_friends);
     const [show, setShow] = useState(false);
     const dispatch = useDispatch();
 
@@ -35,6 +41,15 @@ const Friends = () => {
         let name = event.target.value;//this is the value from the input text
         dispatch(searchFriend({id:'',full_name:name}));
     }
+
+    const handleSortByNameDesc = () => {
+        dispatch(sortByName({sortBy:0}));
+      };
+    const handleSortByNameAsc = () => {
+        dispatch(sortByName({sortBy:1}));
+    };
+    //
+
     return (
         <>
 
@@ -52,7 +67,11 @@ const Friends = () => {
             </Row>
             <Row>
                 <Col>
-                {<p className="fs-5">You have {number_of_friends} {number_of_friends <= 1 ? "friend.": "friends."} </p>}
+                
+                
+                    <h5 className="mt-5">Sort By Name: <AiOutlineSortAscending className="fs-3" role="button" onClick={ handleSortByNameAsc}/> <AiOutlineSortDescending className="fs-3" role="button" onClick={handleSortByNameDesc}/></h5>
+                    
+                
                 </Col>
                 <Col>
                 <Form>
@@ -66,7 +85,7 @@ const Friends = () => {
             </Row>
             <Row>
                 {list_of_friends.map((friend)=>(
-                    <Col className="p-2 m-2 bg-dark text-white text-center rounded-3 border border-1" key={friend.id}>
+                    <Col className="p-2 m-2 bg-light text-dark text-center rounded-3 border border-1 shadow-sm" key={friend.id}>
                         <Friend id={friend.id} name={friend.full_name} short_bio={friend.short_bio} is_friend={friend.is_friend}/>
                     </Col>
                 ))}

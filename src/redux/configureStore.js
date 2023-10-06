@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from "redux";
-import counterReducer from "./ducks/counter";
+import friendReducer from "./ducks/reducer";
 
 const reducer = combineReducers({
-  counter: counterReducer
+  friend: friendReducer,
 });
 
 const store = createStore(reducer);

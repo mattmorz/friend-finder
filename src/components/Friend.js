@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { useDispatch } from "react-redux";
-import { removeFriend, addFriend } from "../redux/ducks/counter";
+import { removeFriend, addFriend } from "../redux/actions";
 
 const Friend = (props) => {
     const [toggle, setToggle ] = useState(props.is_friend);
@@ -27,7 +27,7 @@ const Friend = (props) => {
            <p className={toggle ? "fw-bold fs-5 text-warning": "fw-bold fs-5" }>{props.short_bio}</p>
            <Row>
                 <Col>
-                    <Button onClick={toggleFriend} className={toggle ? "btn-secondary": "btn-primary"}>{toggle ? "Unfriend": "Add as Friend"}</Button>
+                    <Button size="sm" onClick={toggleFriend} className={toggle ? "btn-secondary mb-2": "btn-primary mb-2"}>{toggle ? "Unfriend": "Add as Friend"}</Button>
                 </Col>
             </Row>
             
